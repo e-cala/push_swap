@@ -1,7 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_functions.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecabanas <ecabanas@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/15 11:58:54 by ecabanas          #+#    #+#             */
+/*   Updated: 2022/09/15 12:09:05 by ecabanas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
 
-
-void	ft_push(t_stack **head, int value, int index)
+void	ft_push(t_stack **head, int value)
 {
 	t_stack	*new;
 
@@ -9,7 +19,6 @@ void	ft_push(t_stack **head, int value, int index)
 	if (!new)
 		return ;
 	new->value = value;
-	new->index = index;
 	if (!head)
 		new->next = NULL;
 	else
@@ -19,13 +28,31 @@ void	ft_push(t_stack **head, int value, int index)
 	*head = new;
 }
 
-void	printLinkedlist(t_stack *head)
+void	print_linkedlist(t_stack *head)
 {
 	while (head != NULL)
 	{
-		printf("%d ", head->value);
+		printf("i[%i] = %i\n", head->index, head->value);
 		head = head->next;
 	}
-	//***QUIZAS HAY QUE QUITAR ESTE PRINTF***
-	printf("\n");
 }
+
+void	min_value(t_stack **head, int index, int tmp)
+{
+	t_stack	*new;
+
+	new = *head;
+	while (new)
+	{
+		if (tmp > new->value && new->index == 0)
+			tmp = new->value;
+		new = new->next;
+	}
+	new = *head;
+	while (new)
+	{
+		if (tmp == new->value)
+			new->index = index;
+		new = new->next;
+	}
+}	

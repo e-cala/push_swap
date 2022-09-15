@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input_check.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecabanas <ecabanas@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/15 11:57:39 by ecabanas          #+#    #+#             */
+/*   Updated: 2022/09/15 12:10:28 by ecabanas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "push_swap.h"
 
 /*is_duplicate:
@@ -7,7 +18,7 @@
 int	is_duplicate(t_stack *head)
 {
 	t_stack	*ptr;
-	int	i;
+	int		i;
 
 	i = 0;
 	while (head->next != NULL)
@@ -18,7 +29,7 @@ int	is_duplicate(t_stack *head)
 			if (head->value == ptr->value)
 			{
 				i++;
-				break;
+				break ;
 			}
 			ptr = ptr->next;
 		}
@@ -34,7 +45,7 @@ int	is_duplicate(t_stack *head)
  */
 int	ft_atoi(const char *s, int *value)
 {
-	int 	num;
+	int	num;
 	int	i;
 	int	sign;
 
@@ -56,7 +67,7 @@ int	ft_atoi(const char *s, int *value)
 		i++;
 	}
 	//NO ESTOY SEGURO SI NECESITO ****VERIFICAR*****
-	/*if ((sign * num) > 2147483647 || (sign * num) <= -2147483648)
+	/*if ((sign * num) > INT_MAX || (sign * num) <= INT_MIN)
 		return (0);*/
 	*value = sign * num;
 	return (1);
@@ -71,18 +82,24 @@ int	check_input(int argc, char **argv, t_stack **head)
 {
 	int	value;
 	int	i;
+	int	tmp;
 
 	value = 0;
 	i = 1;
-
 	while (i < argc)
 	{
 		if (!ft_atoi(argv[argc - i], &value))
 			return (0);
-		ft_push(head, value, i);
+		ft_push(head, value);
 		i++;
 	}
 	if (is_duplicate(*head))
 		return (0);
+	i = 0;
+	while (i++ < argc)
+	{
+		tmp = INT_MAX;
+		min_value(head, i, tmp);
+	}
 	return (1);
 }
