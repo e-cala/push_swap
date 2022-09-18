@@ -32,9 +32,24 @@ void	print_linkedlist(t_stack *head)
 {
 	while (head != NULL)
 	{
-		printf("i[%i] = %i\n", head->index, head->value);
+		printf("%i ", head->value);
 		head = head->next;
 	}
+	//**********HABRÁ QUE QUITAR!!*******
+	printf("\n");
+}
+
+int	nodes_in_stack(t_stack *head)
+{
+	int	i;
+
+	i = 0;
+	while (head)
+	{
+		i++;
+		head = head->next;
+	}
+	return (i);
 }
 
 void	min_value(t_stack **head, int index, int tmp)

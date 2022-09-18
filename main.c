@@ -29,6 +29,9 @@ int	main(int argc, char *argv[])
 		err_message();
 		return (0);
 	}
-	printLinkedlist(stack_a);
+	print_linkedlist(stack_a);
+	sorting_algorithm(&stack_a);
+	//sa(&stack_a);
+	print_linkedlist(stack_a);
 	return (0);
 }

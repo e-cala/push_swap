@@ -30,15 +30,37 @@ typedef struct s_stack
 
 /*	stack_functions.c	*/
 void	ft_push(t_stack **head, int value);
-void	printLinkedlist(t_stack *head);
-void	min_value(t_stack **head, int indexi, int tmp);
+void	print_linkedlist(t_stack *head);
+int	nodes_in_stack(t_stack *head);
+void	min_value(t_stack **head, int index, int tmp);
+
+/*	sorting_functions.c	*/
+int	sorting_algorithm(t_stack **head);
+int	stack_is_sorted(t_stack *head);
+void	sort_three(t_stack **head);
+
 /*	input_check.c		*/
-int		is_duplicate(t_stack *head);
-int		ft_atoi(const char *s, int *value);
-int		check_input(int argc, char **argv, t_stack **head);
+int	is_duplicate(t_stack *head);
+int	ft_atoi(const char *s, int *value);
+int	check_input(int argc, char **argv, t_stack **head);
 
 /*	utils.c			*/
 void	err_message(void);
-int		is_digit(char c);
+int	is_digit(char c);
+
+/*	swap.c			*/
+void	swap(t_stack **head);
+void	sa(t_stack **head);
+void	sb(t_stack **head);
+
+/*	rotate.c		*/
+void	rotate(t_stack **head);
+void	ra(t_stack **head);
+void	rb(t_stack **head);
+
+/*	reverse_rotate.c	*/
+void	reverse_rotate(t_stack **head);
+void	rra(t_stack **head);
+void	rrb(t_stack **head);
 
 #endif
