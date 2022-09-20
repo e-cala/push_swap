@@ -6,7 +6,7 @@
 /*   By: ecabanas <ecabanas@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 11:58:41 by ecabanas          #+#    #+#             */
-/*   Updated: 2022/09/15 12:10:45 by ecabanas         ###   ########.fr       */
+/*   Updated: 2022/09/20 13:23:04 by ecabanas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -40,6 +40,7 @@ int	sorting_algorithm(t_stack **head_a, t_stack **head_b);
 int	stack_is_sorted(t_stack *head);
 void	sort_three(t_stack **head);
 void	sort_big(t_stack **head_a, t_stack **head_b);
+void	push_all_save_three(t_stack **head_a, t_stack **head_b);
 
 /*	input_check.c		*/
 int	is_duplicate(t_stack *head);

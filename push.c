@@ -7,20 +7,14 @@ void	push(t_stack **src, t_stack **dst)
 {
 	t_stack	*tmp;
 
-	tmp = *src;
-	if (!*dst)
-	{
-		*src = (*src)->next;
-		*dst = tmp;
-		(*dst)->next = NULL;
-	}
-	else
-	{
-		*src = (*src)->next;
-		tmp->next = *dst;
-		*dst = tmp;
-	}
+	if (*src == NULL)
+		return ;
+	tmp = (*src)->next;
+	(*src)->next = *dst;
+	*dst = *src;
+	*src = tmp;
 }
+
 /*pa:
  * Pushes the first element from stack A into stack B
  * and prints 'pa'.

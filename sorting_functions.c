@@ -53,34 +53,63 @@ void	sort_three(t_stack **head)
 	if ((*head)->index > (*head)->next->index)
 		 sa(head);
 }
-/*
-void	sort_big(t_stack **head_a, t_stack **head_b)
+
+void	push_all_save_three(t_stack **head_a, t_stack **head_b)
 {
 	int	i;
-	int	size_a;
+	int	pushed;
+	int size_a;
 
 	i = 0;
+	pushed = 0;
 	size_a = nodes_in_stack(*head_a);
-	while (i++ < size_a - 3)
-		pb(head_a, head_b);
-	sort_three(head_a);
-}
-*/
-void	sort_big(t_stack **head_a, t_stack **head_b)
-{
-	int	i;
-	int	size_a;
-	t_stack	*tmp;
-
-	i = 0;
-	size_a = nodes_in_stack(*head_a);
-	tmp = *head_a;
-	while (i++ < size_a - 3)
+	while (i < size_a - 3)
 	{
-		if (tmp->index < (size_a / 2))
-			pb(tmp, head_b);
-		tmp = tmp->next;
+		if ((*head_a)->index <= size_a / 2)
+		{
+			pb(head_a, head_b);
+			pushed++;
+		}
+		else
+			ra(head_a);
+		i++;
 	}
+	while (size_a - pushed > 3)
+	{
+		pb(head_a, head_b);
+		pushed++;
+	}
+}
+/*
+void	push_all_save_three(t_stack **head_a, t_stack **head_b)
+{
+	int	i;
+	int	size_a;
+	int	pushed;
+
+	i = 0;
+	pushed = 0;
+	size_a = nodes_in_stack(*head_a);
+	while (size_a > 6 && i < size_a  && pushed < size_a / 2)
+	{
+		if ((*head_a)->index <= size_a /2)
+		{
+			pb(head_a, head_b);
+			pushed++;
+		}
+		else 
+			ra(head_a);
+	i++;
+	}
+	while (size_a - pushed > 3)
+	{
+		pb(head_a, head_b);
+		pushed++;
+	}
+}*/
+
+void	sort_big(t_stack **head_a, t_stack **head_b)
+{
+	push_all_save_three(head_a, head_b);
 	sort_three(head_a);
 }
-
