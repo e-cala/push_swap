@@ -6,7 +6,7 @@
 /*   By: ecabanas <ecabanas@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 11:58:54 by ecabanas          #+#    #+#             */
-/*   Updated: 2022/09/15 12:09:05 by ecabanas         ###   ########.fr       */
+/*   Updated: 2022/09/20 16:07:08 by ecabanas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -38,7 +38,7 @@ void	print_linkedlist(t_stack *head)
 {
 	while (head != NULL)
 	{
-		printf("%i[%i] ", head->value, head->index);
+		printf("%i[%i](%i)<%i> ", head->value, head->index, head->pos, head->target_pos);
 		head = head->next;
 	}
 	//**********HABRÁ QUE QUITAR!!*******
