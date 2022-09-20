@@ -19,9 +19,10 @@
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
-	//t_stack *stk_b;
+	t_stack *stack_b;
 
 	stack_a = NULL;
+	stack_b = NULL;
 	if (argc < 2)
 		return (0);
 	if (!check_input(argc, argv, &stack_a))
@@ -29,9 +30,13 @@ int	main(int argc, char *argv[])
 		err_message();
 		return (0);
 	}
+	printf("1.Stack A: ");
 	print_linkedlist(stack_a);
-	sorting_algorithm(&stack_a);
-	//sa(&stack_a);
+
+	sorting_algorithm(&stack_a, &stack_b);
+	printf("\n2.Stack A: ");
 	print_linkedlist(stack_a);
+	printf("2.Stack B: ");
+	print_linkedlist(stack_b);
 	return (0);
 }
