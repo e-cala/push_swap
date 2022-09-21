@@ -62,7 +62,7 @@ void	push_all_save_three(t_stack **head_a, t_stack **head_b)
 {
 	int	i;
 	int	pushed;
-	int size_a;
+	int 	size_a;
 
 	i = 0;
 	pushed = 0;
@@ -93,7 +93,5 @@ void	sort_big(t_stack **head_a, t_stack **head_b)
 {
 	push_all_save_three(head_a, head_b);
 	sort_three(head_a);
-	//get_position(head_a);
-	get_position(head_b);
 	get_target_pos(head_a, head_b);
 }

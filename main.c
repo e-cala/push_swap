@@ -40,3 +40,24 @@ int	main(int argc, char *argv[])
 	print_linkedlist(stack_b);
 	return (0);
 }
+/*
+int	main(int argc, char *argv[])
+{
+	t_stack	*stack_a;
+
+	stack_a = NULL;
+	if (argc < 2)
+		return (0);
+	if (!check_input(argc, argv, &stack_a))
+	{
+		err_message();
+		return (0);
+	}
+	printf("1.Stack A: ");
+	print_linkedlist(stack_a);
+	get_target(5, stack_a);
+	get_target(3, stack_a);
+	get_target(2, stack_a);
+	get_target(1, stack_a);
+	return (0);
+}*/

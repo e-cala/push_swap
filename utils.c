@@ -22,3 +22,10 @@ int	is_digit(char c)
 		return (1);
 	return (0);
 }
+
+int	abs(int num)
+{
+	if (num < 0)
+		return (-num);
+	return (num);
+}

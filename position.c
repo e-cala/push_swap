@@ -18,36 +18,45 @@ void	get_position(t_stack **head)
 void	get_target_pos(t_stack **head_a, t_stack **head_b)
 {
 	t_stack	*tmp;
-	int		i;
+	int	target_pos;
 
 	tmp = *head_b;
-	(void)head_a;
-	i = 0;
+	get_position(head_a);
+	get_position(head_b);
+	target_pos = 0;
 	while (tmp)
 	{
-		i = find_pos(tmp->index, head_a);
-		printf("-----%i", i);
-		tmp->target_pos = i;
+		target_pos = get_target(tmp->index, *head_a);
+		tmp->target_pos = target_pos;
 		tmp = tmp->next;
 	}
 }
 
-int	find_pos(int index, t_stack **head_a)
+/*	NO ESTOY 100% SEGURO QUE DE EL RESULTADO CORRECTO	*
+*****************************************************************/
+int	get_target(int index, t_stack *head_a)
 {
-	t_stack	*tmp;
-	int		i;
+	t_stack	*new;
+	int	tmp = INT_MAX;
+	int	i;
 
-	tmp = *head_a;
+	new = head_a;
 	i = 0;
-	while (tmp && index+1 != tmp->index)
+	while (new)
 	{
-		i++;
-		tmp = tmp->next;
+		if (new->index - index < tmp)
+		{
+			tmp = abs(new->index - index);
+		}
+		new = new->next;
 	}
-	/*while (tmp && index+1 != tmp->index)
+	new = head_a;
+	while (new)
 	{
+		if (abs(new->index - index) == tmp)
+			break;
 		i++;
-		tmp = tmp->next;
-	}*/
+		new = new->next;
+	}
 	return (i);
 }
