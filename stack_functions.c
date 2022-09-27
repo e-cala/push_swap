@@ -39,7 +39,7 @@ void	print_linkedlist(t_stack *head)
 	while (head != NULL)
 	{
 		//printf("%i[%i](%i)<%i> ", head->value, head->index, head->pos, head->target_pos);
-		printf("[%i](%i)<%i> ", head->index,head->pos, head->target_pos);
+		printf("[%i](%i)<%i> ", head->pos,head->cost_b, head->cost_a);
 		head = head->next;
 	}
 	//**********HABRÁ QUE QUITAR!!*******

@@ -31,7 +31,7 @@ void	sort_three(t_stack **head);
 void	sort_big(t_stack **head_a, t_stack **head_b);
 void	push_all_save_three(t_stack **head_a, t_stack **head_b);
 
-/*	input_check.c		*/
+/*	input_check.c	*/
 int	is_duplicate(t_stack *head);
 int	ft_atoi(const char *s, int *value);
 int	check_input(int argc, char **argv, t_stack **head);
@@ -65,5 +65,9 @@ void	rrb(t_stack **head);
 void	get_position(t_stack **head);
 void	get_target_pos(t_stack **head_a, t_stack **head_b);
 int	get_target(int index, t_stack *head_a);
+
+/*	cost.c			*/
+void	get_cost(t_stack **head_a, t_stack **head_b);
+void	do_cheapest_move(t_stack **head_a, t_stack **head_b);
 
 #endif
